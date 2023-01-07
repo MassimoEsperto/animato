@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `<my-header></my-header>
+  <router-outlet></router-outlet>
+  <my-footer></my-footer>`
+
 })
+
 export class AppComponent {
-  title = 'animato';
+  constructor(private wowService: NgwWowService) {
+    this.wowService.init();
+  }
 }
